@@ -55,3 +55,5 @@ const theme = {
   navDelay: 1000,
   loaderDelay: 2000,
 };
+
+export default theme;

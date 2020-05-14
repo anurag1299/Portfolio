@@ -17,7 +17,7 @@ const Button = styled.button`
 
   &:hover,
   &:focus,
-  $:active {
+  &:active {
     background-color: ${colors.transBlue};
     outline: none;
   }

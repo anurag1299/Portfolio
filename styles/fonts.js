@@ -25,7 +25,7 @@ import JETBRAINSMONOBoldItalicTTF from "@fonts/JetBrainsMono-Bold-Italic.ttf";
 import JETBRAINSMONOBoldItalicWOFF from "@fonts/JetBrainsMono-Bold-Italic.woff";
 import JETBRAINSMONOBoldItalicWOFF2 from "@fonts/JetBrainsMono-Bold-Italic.woff2";
 
-FontFaces = css`
+const FontFaces = css`
   @font-face {
     font-family: "JetBrains Mono";
     src: url(${JETBRAINSMONORegularWOFF2}) format("woff2"),
@@ -91,3 +91,5 @@ FontFaces = css`
     font-style: italic;
   }
 `;
+
+export default FontFaces;

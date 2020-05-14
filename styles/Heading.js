@@ -41,3 +41,5 @@ const Heading = styled.h3`
     ${media.thone`margin-left: 10px;`};
   }
 `;
+
+export default Heading;
