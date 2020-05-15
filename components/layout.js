@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Head, Loader, Nav, Social, Email, Footer } from "@components";
+import { Nav, Social, Email } from "./index";
 import styled from "styled-components";
-import { GlobalStyle, theme } from "@styles";
+import { GlobalStyle, theme } from "../styles/index";
 const { colors, fontSizes, fonts } = theme;
 
 if (typeof window !== "undefined") {
@@ -16,15 +16,12 @@ const StyledContent = styled.div`
 `;
 
 const Layout = () => {
+  // const isHome = location.pathname === "/";
+
   return (
     <div id="root">
       <StyledContent>
-        <Nav />
-        <Social />
-        <Email />
-        <div id="content">
-          <Footer />
-        </div>
+        <Nav></Nav>
       </StyledContent>
     </div>
   );

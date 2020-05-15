@@ -1,4 +1,4 @@
-import { createGlobalStyles } from "styled-components";
+import { css } from "styled-components";
 import theme from "./theme";
 import media from "./media";
 import mixins from "./mixins";
@@ -6,7 +6,7 @@ import FontFaces from "./fonts";
 import TransitionStyles from "./TransitionStyle";
 const { colors, fontSizes, fonts } = theme;
 
-const GlobalStyle = createGlobalStyles`
+const GlobalStyle = css`
   ${FontFaces};
 
   html {
@@ -48,12 +48,12 @@ const GlobalStyle = createGlobalStyles`
     }
   }
 
-  ::selection{
-      background-color: ${colors.slate};
-      color: ${colors.lightestSlate};
+  ::selection {
+    background-color: ${colors.slate};
+    color: ${colors.lightestSlate};
   }
 
-  #root{
+  #root {
     min-height: 100vh;
     display: grid;
     grid-template-rows: 1fr auto;
@@ -97,12 +97,11 @@ const GlobalStyle = createGlobalStyles`
     vertical-align: middle;
   }
 
-  img[alt=""]
-  img:not([alt]){
-      filter: blur(5px);
+  img[alt=""] img:not([alt]) {
+    filter: blur(5px);
   }
 
-  svg{
+  svg {
     width: 100%;
     height: 100%;
     fill: currentColor;
@@ -135,7 +134,8 @@ const GlobalStyle = createGlobalStyles`
     }
   }
 
-  input, textarea {
+  input,
+  textarea {
     border-radius: 0;
     outline: 0;
 
@@ -179,7 +179,7 @@ const GlobalStyle = createGlobalStyles`
         padding-left: 30px;
         margin-bottom: 10px;
         &:before {
-          content: '▹';
+          content: "▹";
           position: absolute;
           left: 0;
           color: ${colors.blue};

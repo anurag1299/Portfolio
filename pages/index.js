@@ -1,19 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Layout } from "@components";
+import { Layout } from "../components/index";
 import styled from "styled-components";
-import { Main } from "@styles";
+import { Main } from "../styles/index";
 
 const StyledMainContainer = styled(Main)`
   counter-reset: section;
 `;
 
-const Index = () => {
+const Index = () => (
   <Layout>
     <StyledMainContainer className="fillHeight"></StyledMainContainer>
-  </Layout>;
-};
-
-Index.PropTypes = {};
+  </Layout>
+);
 
 export default Index;

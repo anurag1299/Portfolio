@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
-import { theme, media } from "@styles";
+import { theme, media } from "../styles/index";
 const { colors, loaderDelay } = theme;
 
 const StyledContainer = styled.div`
@@ -19,13 +19,15 @@ const StyledContainer = styled.div`
 
 const Side = ({ children, isHome, orientation }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
-  if (!isHome) {
-    return;
-  }
+
   useEffect(() => {
+    if (!isHome) {
+      return;
+    }
     const timeout = setTimeout(() => setIsMounted(true), loaderDelay);
     return () => clearTimeout(timeout);
   }, []);
+
   return (
     <StyledContainer orientation={orientation}>
       <TransitionGroup component={null}>
@@ -42,7 +44,7 @@ const Side = ({ children, isHome, orientation }) => {
   );
 };
 
-Side.prototype = {
+Side.propTypes = {
   children: PropTypes.node.isRequired,
   isHome: PropTypes.bool,
   orientation: PropTypes.string,
