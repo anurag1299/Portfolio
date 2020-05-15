@@ -30,6 +30,9 @@ const StyledList = styled.ul`
 `;
 const StyledLink = styled.a`
   padding: 10px;
+  display: inline-block;
+  color:${colors.lightestSlate}
+
   &:hover,
   &:focus {
     transform: translateY(-3px);

@@ -19,6 +19,7 @@ const StyledContainer = styled.header`
   background-color: ${colors.darkNavy};
   transition: ${theme.transition};
   z-index: 11;
+  box-sizing: border-box;
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -256,15 +257,9 @@ class Nav extends Component {
             {isMounted && (
               <CSSTransition classNames={fadeClass} timeout={timeout}>
                 <StyledLogo tabindex="-1">
-                  {isHome ? (
-                    <a href="/" aria-label="home">
-                      <IconLogo />
-                    </a>
-                  ) : (
-                    <a href="/" aria-label="home">
-                      <IconLogo />
-                    </a>
-                  )}
+                  <a href="#" aria-label="home">
+                    <IconLogo />
+                  </a>
                 </StyledLogo>
               </CSSTransition>
             )}

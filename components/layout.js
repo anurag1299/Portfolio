@@ -21,7 +21,9 @@ const Layout = () => {
   return (
     <div id="root">
       <StyledContent>
-        <Nav></Nav>
+        <Nav isHome={true}></Nav>
+        <Social isHome={true}></Social>
+        <Email isHome={true}></Email>
       </StyledContent>
     </div>
   );
