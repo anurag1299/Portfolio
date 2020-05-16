@@ -21,10 +21,9 @@ const StyledLinkWrapper = styled.div`
   }
 `;
 const StyledEmailLink = styled.a`
-  font-family: ${fonts.JetBrainsMono};
   font-size: ${fontSizes.xs};
   letter-spacing: 0.1em;
-  text-decoration: none;
+
   color: ${colors.lightestSlate};
   writing-mode: vertical-rl;
   margin: 20px auto;

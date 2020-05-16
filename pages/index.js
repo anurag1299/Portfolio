@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Layout } from "../components/index";
 import styled from "styled-components";
-import { Main } from "../styles/index";
+import { Main, GlobalStyle } from "../styles/index";
 
 const StyledMainContainer = styled(Main)`
   counter-reset: section;

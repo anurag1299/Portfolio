@@ -19,7 +19,7 @@ const StyledContainer = styled.header`
   background-color: ${colors.darkNavy};
   transition: ${theme.transition};
   z-index: 11;
-  box-sizing: border-box;
+
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;

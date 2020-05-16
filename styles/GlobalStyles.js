@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import theme from "./theme";
 import media from "./media";
 import mixins from "./mixins";
@@ -6,8 +6,8 @@ import FontFaces from "./fonts";
 import TransitionStyles from "./TransitionStyle";
 const { colors, fontSizes, fonts } = theme;
 
-const GlobalStyle = css`
-  ${FontFaces};
+const GlobalStyle = createGlobalStyle`
+  /* ${FontFaces}; */
 
   html {
     box-sizing: border-box;

@@ -30,7 +30,7 @@ const StyledList = styled.ul`
 `;
 const StyledLink = styled.a`
   padding: 10px;
-  display: inline-block;
+  
   color:${colors.lightestSlate}
 
   &:hover,
@@ -48,7 +48,7 @@ const Social = ({ isHome }) => (
     <StyledList>
       {socialMedia &&
         socialMedia.map(({ url, name }, i) => (
-          <li Key={i}>
+          <li key={i}>
             <StyledLink
               href={url}
               target="_blank"
