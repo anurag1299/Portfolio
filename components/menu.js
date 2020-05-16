@@ -24,7 +24,7 @@ const StyledContainer = styled.div`
 const Sidebar = styled.aside`
   ${mixins.flexCenter};
   flex-direction: column;
-  background-color: ${colors.lightNavy};
+  background-color: ${colors.navy};
   padding: 50px;
   width: 50vw;
   height: 100%;
@@ -82,13 +82,8 @@ const ResumeLink = styled.a`
 
 const Menu = ({ menuOpen, toogleMenu }) => {
   const handleMenuClick = (e) => {
-    const target = e.target;
-    const isLink = target.hasAttribute("href");
-    const isNotMenu =
-      target.classList && target.classList[0].includes("StyledContainer");
-    if (isLink || isNotMenu) {
-      toogleMenu();
-    }
+    //console.log("working");
+    toogleMenu();
   };
 
   return (
@@ -108,6 +103,13 @@ const Menu = ({ menuOpen, toogleMenu }) => {
                 </NavListItem>
               ))}
           </NavList>
+          <ResumeLink
+            href="/resume.pdf"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Resume
+          </ResumeLink>
         </NavLinks>
       </Sidebar>
     </StyledContainer>

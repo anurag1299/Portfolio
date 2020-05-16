@@ -89,7 +89,7 @@ const StyledHamburgerBox = styled.div`
   height: 24px;
 `;
 const StyledHamburgerInner = styled.div`
-  background-color: ${colors.green};
+  background-color: ${colors.blue};
   position: absolute;
   width: ${theme.hamburgerWidth}px;
   height: 2px;
@@ -199,7 +199,10 @@ class Nav extends Component {
     window.removeEventListener("keydown", (e) => this.handleKeydown(e));
   }
 
-  toogleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+  toogleMenu = () => {
+    //console.log("working");
+    this.setState({ menuOpen: !this.state.menuOpen });
+  };
 
   handleScroll = () => {
     const { isMounted, menuOpen, scrollDirection, lastScrollTop } = this.state;
@@ -246,7 +249,7 @@ class Nav extends Component {
     const timeout = isHome ? loaderDelay : 0;
     const fadeClass = isHome ? "fade" : "";
     const fadeDownClass = isHome ? "fadedown" : "";
-
+    console.log(isMounted);
     return (
       <StyledContainer scrollDirection={scrollDirection}>
         {/* <Helmet>
@@ -268,7 +271,7 @@ class Nav extends Component {
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames={fadeClass} timeout={timeout}>
-                <StyledHamburger onClick={this.toggleMenu}>
+                <StyledHamburger onClick={this.toogleMenu}>
                   <StyledHamburgerBox>
                     <StyledHamburgerInner menuOpen={menuOpen} />
                   </StyledHamburgerBox>
