@@ -10,7 +10,7 @@ const TransitionStyle = css`
 
   .fadeup-enter-active {
     opacity: 1;
-    transform: translateY(20px);
+    transform: translateY(0px);
     transition: opacity 300ms ${theme.easing}, transform 300ms ${theme.easing};
   }
 

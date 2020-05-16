@@ -5,7 +5,7 @@ const { colors, fontSizes, fonts } = theme;
 
 const mixins = {
   flexCenter: css`
-    display: fles;
+    display: flex;
     justify-content: center;
     align-items: center;
   `,
