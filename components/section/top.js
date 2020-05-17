@@ -19,7 +19,7 @@ const StyledContainer = styled(Section)`
 const StyledOverline = styled.h1`
   color: ${colors.blue};
   margin: 0 0 20px 3px;
-  font-size: ${fontSizes.md};
+  font-size: ${fontSizes.lg};
   font-family: ${fonts.SFMono};
   font-weight: normal;
   ${media.desktop`font-size: ${fontSizes.sm};`};
@@ -66,7 +66,7 @@ const Top = () => {
 
   const one = () => (
     <StyledOverline style={{ transitionDelay: "100ms" }}>
-      {"Hi, my name is"}
+      {"Hi, I am"}
     </StyledOverline>
   );
 
@@ -78,14 +78,14 @@ const Top = () => {
 
   const three = () => (
     <StyledSubtitle style={{ transitionDelay: "300ms" }}>
-      {"I build games and websites."}
+      {"I Rehash Ideas Into Reality."}
     </StyledSubtitle>
   );
 
   const four = () => (
     <StyledDescription style={{ transitionDelay: "400ms" }}>
       {
-        "I'm a computer science engineer based in Maharashtra,INDIA specializing in building and designing games,websites,application and everything in between."
+        "I'm a computer science engineer based in Maharashtra,INDIA specializing in developing and designing awesome games,websites,application and everything in between."
       }
     </StyledDescription>
   );
