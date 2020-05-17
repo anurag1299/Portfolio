@@ -31,7 +31,7 @@ const Heading = styled.h3`
     content: "";
     display: block;
     height: 1px;
-    width: 300;
+    width: 300px;
     background-color: ${colors.lightestNavy};
     position: relative;
     top: -5px;

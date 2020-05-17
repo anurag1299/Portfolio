@@ -11,6 +11,14 @@ module.exports = {
         outputPath: "dist/assets/",
       },
     });
+    config.module.rules.push({
+      test: /\.md$/,
+      use: "raw-loader",
+    });
+    config.module.rules.push({
+      test: /\.(png|jpe?g|gif)$/i,
+      use: "file-loader",
+    });
     config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
     return config;
   },

@@ -5,3 +5,4 @@ export { default as Social } from "./social";
 export { default as Menu } from "./menu";
 export { default as Email } from "./email";
 export { default as Top } from "./section/top";
+export { default as About } from "./section/about";
