@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Nav, Social, Email } from "./index";
+import { Nav, Social, Email, Footer } from "./index";
 import styled from "styled-components";
 import { GlobalStyle, theme } from "../styles/index";
 const { colors, fontSizes, fonts } = theme;
@@ -24,7 +24,10 @@ const Layout = ({ children }) => {
         <Nav isHome={true}></Nav>
         <Social isHome={true}></Social>
         <Email isHome={true}></Email>
-        <div id="content">{children}</div>
+        <div id="content">
+          {children}
+          <Footer />
+        </div>
       </StyledContent>
     </div>
   );
