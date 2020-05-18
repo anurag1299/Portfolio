@@ -16,7 +16,7 @@ const StyledFlexContainer = styled.div`
 `;
 const StyledContent = styled.div`
   width: 60%;
-  max-width: 480px;
+  max-width: 720px;
   ${media.tablet`width: 100%;`};
   a {
     ${mixins.inlineLink};
@@ -37,6 +37,17 @@ const SkillsContainer = styled.ul`
   margin: 20px 0 0 0;
   list-style: none;
 `;
+
+const SkillHeading = styled.li`
+  position: relative;
+
+  margin-bottom: 10px;
+
+  font-family: ${fonts.JetBrainsMono};
+  font-size: ${fontSizes.md};
+  color: ${colors.blue};
+`;
+
 const Skill = styled.li`
   position: relative;
   margin-bottom: 10px;
@@ -127,35 +138,54 @@ const About = () => {
       <Heading>{"About Me"}</Heading>
       <StyledFlexContainer>
         <StyledContent>
-          <div>
+          <p>
             {
-              "Hello! I'm Anurag, a computer science engineer based in Maharashtra, INDIA.\nI enjoy developing ideas that live on internet, whether that be a game, website, application or anything in between. My\ngoal is to develope products that provide performant,responsive experience.\nI am currently pursuing my degree from Shri Guru Gobind Singhji Institute of Engineering and Technology, I am also founder of team Errorist where we make,break,evolve and create intresting projects\non a daily basis.\nHere are a few technologies I work with:"
+              "Hello! I'm Anurag, a computer science engineer based in Maharashtra, INDIA."
             }
-          </div>
+          </p>
+          <p>
+            {
+              "I enjoy developing ideas that live on internet, whether that be a game, website, application or anything in between. My goal is to develope products that provide performant,responsive experience."
+            }
+          </p>
+          <p>
+            {
+              "I am currently pursuing my degree from Shri Guru Gobind Singhji Institute of Engineering and Technology, I am also founder of team Errorist where we make,break,evolve and create intresting projects on a daily basis."
+            }
+          </p>
+          <p>{"Here are a few technologies I work with:"}</p>
+
           <SkillsWrapper>
             <SkillsContainer>
-              <Skill>{"ReactJs"}</Skill>
+              <SkillHeading>{"LANGUAGES"}</SkillHeading>
+              <Skill>{"C"}</Skill>
+              <Skill>{"C++"}</Skill>
+              <Skill>{"C#"}</Skill>
+              <Skill>{"Java"}</Skill>
+              <Skill>{"JavaScript(ES6)"}</Skill>
+              <Skill>{"TypeScript"}</Skill>
+              <Skill>{"PHP"}</Skill>
+              <Skill>{"SQL"}</Skill>
+            </SkillsContainer>
+            <SkillsContainer>
+              <SkillHeading>{"FRAMEORKS"}</SkillHeading>
+              <Skill>{"React"}</Skill>
               <Skill>{"NodeJs"}</Skill>
               <Skill>{"ExpressJs"}</Skill>
+              <Skill>{"NextJs"}</Skill>
+              <Skill>{"ElectronJs"}</Skill>
+              <Skill>{"PhaserJs"}</Skill>
+            </SkillsContainer>
+            <SkillsContainer>
+              <SkillHeading>{"TOOLS"}</SkillHeading>
+              <Skill>{"AWS"}</Skill>
+              <Skill>{"Git & Github"}</Skill>
               <Skill>{"MongoDb"}</Skill>
-            </SkillsContainer>
-            <SkillsContainer>
-              <Skill>{"AWS"}</Skill>
-              <Skill>{"Unity3D"}</Skill>
+              <Skill>{"Android Studio"}</Skill>
+              <Skill>{"Unity3d"}</Skill>
               <Skill>{"Blender"}</Skill>
               <Skill>{"Photoshop"}</Skill>
               <Skill>{"Illustrator"}</Skill>
-              <Skill>{"C++"}</Skill>
-              <Skill>{"Java"}</Skill>
-            </SkillsContainer>
-            <SkillsContainer>
-              <Skill>{"AWS"}</Skill>
-              <Skill>{"Unity3D"}</Skill>
-              <Skill>{"Blender"}</Skill>
-              <Skill>{"Photoshop"}</Skill>
-              <Skill>{"Illustrator"}</Skill>
-              <Skill>{"C++"}</Skill>
-              <Skill>{"Java"}</Skill>
             </SkillsContainer>
           </SkillsWrapper>
         </StyledContent>
