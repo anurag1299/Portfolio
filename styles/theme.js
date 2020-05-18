@@ -17,6 +17,7 @@ const theme = {
     blue: ACCENT,
     transBlue: hex2rgba(ACCENT, 0.07),
     shadowNavy: hex2rgba(Dark_BG, 0.07),
+    navShadow: " #000d1a",
   },
 
   fonts: {

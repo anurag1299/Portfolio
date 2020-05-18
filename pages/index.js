@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Layout, Top, About } from "../components/index";
+import { Layout, Top, About, Education } from "../components/index";
 import styled from "styled-components";
 import { Main, GlobalStyle } from "../styles/index";
 
@@ -13,6 +13,7 @@ const Index = () => (
     <StyledMainContainer className="fillHeight">
       <Top></Top>
       <About></About>
+      <Education></Education>
     </StyledMainContainer>
   </Layout>
 );

@@ -23,7 +23,7 @@ const Heading = styled.h3`
     color: ${colors.blue};
     font-size: ${fontSizes.xl};
     position: relative;
-    bottom: 4px;
+    bottom: -2px;
     ${media.tablet`font-size: ${fontSizes.lg};`};
   }
 

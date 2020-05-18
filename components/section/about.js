@@ -145,7 +145,7 @@ const About = () => {
           </p>
           <p>
             {
-              "I enjoy developing ideas that live on internet, whether that be a game, website, application or anything in between. My goal is to develope products that provide performant,responsive experience."
+              "I enjoy developing ideas that live on internet, whether that be a game, website, application or anything related. My goal is to develope products that provide performant,responsive experience."
             }
           </p>
           <p>
@@ -162,7 +162,7 @@ const About = () => {
               <Skill>{"C++"}</Skill>
               <Skill>{"C#"}</Skill>
               <Skill>{"Java"}</Skill>
-              <Skill>{"JavaScript(ES6)"}</Skill>
+              <Skill>{"JavaScript(2019)"}</Skill>
               <Skill>{"TypeScript"}</Skill>
               <Skill>{"PHP"}</Skill>
               <Skill>{"SQL"}</Skill>

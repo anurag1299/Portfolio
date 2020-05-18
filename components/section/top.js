@@ -85,7 +85,7 @@ const Top = () => {
   const four = () => (
     <StyledDescription style={{ transitionDelay: "400ms" }}>
       {
-        "I'm a computer science engineer based in Maharashtra,INDIA specializing in developing and designing awesome games,websites,application and everything in between."
+        "I'm a computer science engineer based in Maharashtra,INDIA specializing in developing and designing awesome games,websites,application and everything related."
       }
     </StyledDescription>
   );
