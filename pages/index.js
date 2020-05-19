@@ -26,14 +26,19 @@ const Index = ({ allContentId }) => {
 export default Index;
 
 export async function getStaticProps() {
-  const allContentId = getContentData();
+  Promise.resolve(getContent())
+    .then(
+      data=>Promise.resolve(data)
+      .then(data=>console.log("idata",data))
+      .catch(err=>console.log("ierr",err))
+      )
+    .catch(err=>console.log("ierr",err))
   // const allContentData = await allContentId.map((i) => {
   //   getContent(i.id);
   // });
-  // console.log(allContentData);
   return {
     props: {
-      allContentId,
+      
     },
   };
 }
