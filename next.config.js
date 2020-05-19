@@ -19,6 +19,11 @@ module.exports = {
       test: /\.(png|jpe?g|gif)$/i,
       use: "file-loader",
     });
+    if (!isServer) {
+      config.node = {
+        fs: "empty",
+      };
+    }
     config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
     return config;
   },
