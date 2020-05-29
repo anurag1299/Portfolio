@@ -249,7 +249,7 @@ class Nav extends Component {
     const timeout = isHome ? loaderDelay : 0;
     const fadeClass = isHome ? "fade" : "";
     const fadeDownClass = isHome ? "fadedown" : "";
-    console.log(isMounted);
+    //console.log(isMounted);
     return (
       <StyledContainer scrollDirection={scrollDirection}>
         {/* <Helmet>

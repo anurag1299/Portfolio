@@ -129,78 +129,55 @@ const StyledAvatarLink = styled.a`
   }
 `;
 
-const About = () => {
+const About = (data) => {
+  const {
+    title,
+    avatar,
+    languages,
+    frameworks,
+    tools,
+    contentHtml,
+  } = data.frontmatter;
   //   const revealContainer = useRef(null);
   //   useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
   //   console.log(avatar);
   return (
     <StyledContainer id="about">
-      <Heading>{"About Me"}</Heading>
+      <Heading>{title}</Heading>
       <StyledFlexContainer>
         <StyledContent>
-          <p>
-            {
-              "Hello! I'm Anurag, a computer science engineer based in Maharashtra, INDIA."
-            }
-          </p>
-          <p>
-            {
-              "I enjoy developing ideas that live on internet, whether that be a game, website, application or anything related. My goal is to develope products that provide performant,responsive experience."
-            }
-          </p>
-          <p>
-            {
-              "I am currently pursuing my degree from Shri Guru Gobind Singhji Institute of Engineering and Technology, I am also founder of team Errorist where we make,break,evolve and create intresting projects on a daily basis."
-            }
-          </p>
-          <p>{"Here are a few technologies I work with:"}</p>
+          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
 
           <SkillsWrapper>
             <SkillsContainer>
               <SkillHeading>{"LANGUAGES"}</SkillHeading>
-              <Skill>{"C"}</Skill>
-              <Skill>{"C++"}</Skill>
-              <Skill>{"C#"}</Skill>
-              <Skill>{"Java"}</Skill>
-              <Skill>{"JavaScript(2019)"}</Skill>
-              <Skill>{"TypeScript"}</Skill>
-              <Skill>{"PHP"}</Skill>
-              <Skill>{"SQL"}</Skill>
+              {languages &&
+                languages.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
             </SkillsContainer>
             <SkillsContainer>
-              <SkillHeading>{"FRAMEORKS"}</SkillHeading>
-              <Skill>{"React"}</Skill>
-              <Skill>{"NodeJs"}</Skill>
-              <Skill>{"ExpressJs"}</Skill>
-              <Skill>{"NextJs"}</Skill>
-              <Skill>{"ElectronJs"}</Skill>
-              <Skill>{"PhaserJs"}</Skill>
+              <SkillHeading>{"FRAMEWORKS"}</SkillHeading>
+              {frameworks &&
+                frameworks.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
             </SkillsContainer>
             <SkillsContainer>
               <SkillHeading>{"TOOLS"}</SkillHeading>
-              <Skill>{"AWS"}</Skill>
-              <Skill>{"Git & Github"}</Skill>
-              <Skill>{"MongoDb"}</Skill>
-              <Skill>{"Android Studio"}</Skill>
-              <Skill>{"Unity3d"}</Skill>
-              <Skill>{"Blender"}</Skill>
-              <Skill>{"Photoshop"}</Skill>
-              <Skill>{"Illustrator"}</Skill>
+              {tools && tools.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
             </SkillsContainer>
           </SkillsWrapper>
         </StyledContent>
 
         <StyledPic>
           <StyledAvatarLink href={github}>
-            <StyledAvatar
-              src={"/images/rsz_1self_portrait30.jpg"}
-              alt={"Avatar"}
-            ></StyledAvatar>
+            <StyledAvatar src={avatar} alt={"Avatar"}></StyledAvatar>
           </StyledAvatarLink>
         </StyledPic>
       </StyledFlexContainer>
     </StyledContainer>
   );
+};
+
+About.propTypes = {
+  data: PropTypes.object,
 };
 
 export default About;
