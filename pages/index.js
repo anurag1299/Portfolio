@@ -10,14 +10,14 @@ const StyledMainContainer = styled(Main)`
 `;
 
 const Index = ({ data }) => {
-  console.log(data);
+  //console.log(data);
   return (
     <Layout>
       <StyledMainContainer className="fillHeight">
-        <Top></Top>
-        <About></About>
-        <Education></Education>
-        <Contact></Contact>
+        <Top frontmatter={data.top}></Top>
+        <About frontmatter={data.about}></About>
+        <Education frontmatter={data.education}></Education>
+        <Contact frontmatter={data.contact}></Contact>
       </StyledMainContainer>
     </Layout>
   );
@@ -26,25 +26,22 @@ const Index = ({ data }) => {
 export default Index;
 
 export async function getStaticProps() {
-  Promise.resolve(getContent())
-    .then((data) => {
-      console.log("idata", data);
-      return data;
-    })
-    .then((data) =>
-      Promise.resolve(data)
-        .then((data) => {
-          console.log("mdata", data);
-          return { props: { data } };
-        })
-        .catch((err) => console.log(err))
-    )
-    .catch((err) => console.log("ierr", err));
+  const names = getContent();
+  //console.log(names);
+  const data = await Promise.all(
+    names.map(async (name) => await getContentData(name))
+  );
+  //const content = data.map((i) => i);
+  var content = {};
+  for (var i = 0; i < data.length; i++) {
+    content[data[i].id] = data[i];
+  }
+  //console.log(content);
 
   // const allContentData = await allContentId.map((i) => {
   //   getContent(i.id);
   // });
   return {
-    props: { data: "hi" },
+    props: { data: content },
   };
 }

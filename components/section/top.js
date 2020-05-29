@@ -56,9 +56,12 @@ const StyledEmailLink = styled.a`
   margin-top: 50px;
 `;
 
-const Top = () => {
+const Top = (data) => {
   const [isMounted, setIsMounted] = useState(false);
-
+  const frontmatter = data.frontmatter;
+  //const data = JSON.parse(frontmatter);
+  //console.log(frontmatter.frontmatter.id);
+  //console.log(frontmatter);
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
@@ -66,33 +69,34 @@ const Top = () => {
 
   const one = () => (
     <StyledOverline style={{ transitionDelay: "100ms" }}>
-      {"Hi, I am"}
+      {frontmatter.title}
     </StyledOverline>
   );
 
   const two = () => (
     <StyledTitle style={{ transitionDelay: "200ms" }}>
-      {"Anurag More."}
+      {frontmatter.name}
     </StyledTitle>
   );
 
   const three = () => (
     <StyledSubtitle style={{ transitionDelay: "300ms" }}>
-      {"I Rehash Ideas Into Reality."}
+      {frontmatter.subtitle}
     </StyledSubtitle>
   );
 
   const four = () => (
-    <StyledDescription style={{ transitionDelay: "400ms" }}>
-      {
-        "I'm a computer science engineer based in Maharashtra,INDIA specializing in developing and designing awesome games,websites,application and everything related."
-      }
-    </StyledDescription>
+    <StyledDescription
+      style={{ transitionDelay: "400ms" }}
+      dangerouslySetInnerHTML={{ __html: frontmatter.contentHtml }}
+    />
   );
 
   const five = () => (
     <div style={{ transitionDelay: "500ms" }}>
-      <StyledEmailLink href={`mailto:${email}`}>Get In Touch</StyledEmailLink>
+      <StyledEmailLink href={`mailto:${email}`}>
+        {frontmatter.buttonText}
+      </StyledEmailLink>
     </div>
   );
 
@@ -110,6 +114,10 @@ const Top = () => {
       </TransitionGroup>
     </StyledContainer>
   );
+};
+
+Top.propTypes = {
+  data: PropTypes.object,
 };
 
 export default Top;
