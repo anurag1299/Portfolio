@@ -9,6 +9,8 @@ tech:
   - JavaScript
   - Three.js
   - PHP
+  - SQL
+  - Firebase
 showInProjects: true
 ---
 

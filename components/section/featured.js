@@ -204,7 +204,7 @@ const StyledProject = styled.div`
 
 const Featured = (data) => {
   const frontmatter = data.frontmatter;
-  console.log(frontmatter);
+  //console.log(frontmatter);
   return (
     <StyledContainer id="projects">
       <Heading>Some Things I&apos;ve Built</Heading>
