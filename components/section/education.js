@@ -155,7 +155,7 @@ const EducationDetails = styled.h5`
   }
 `;
 
-const Education = () => {
+const Education = (data) => {
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
   const tabs = useRef([]);
@@ -186,7 +186,8 @@ const Education = () => {
       }
     }
   };
-
+  const frontmatter = data.frontmatter;
+  //console.log(data);
   return (
     <StyledContainer id="jobs">
       <Heading>Where I&apos;ve Learned</Heading>
@@ -196,140 +197,62 @@ const Education = () => {
           aria-label="Education tabs"
           onKeyDown={(e) => onKeyPressed(e)}
         >
-          <li>
-            <StyledTabButton
-              isActive={activeTabId === 0}
-              onClick={() => setActiveTabId(0)}
-              ref={(el) => (tabs.current[0] = el)}
-              id={`tab-${0}`}
-              role="tab"
-              aria-selected={activeTabId === 0 ? true : false}
-              aria-controls={`panel-${0}`}
-              tabIndex={activeTabId === 0 ? "0" : "-1"}
-            >
-              <span>{"MPHS"}</span>
-            </StyledTabButton>
-          </li>
-          <li>
-            <StyledTabButton
-              isActive={activeTabId === 1}
-              onClick={() => setActiveTabId(1)}
-              ref={(el) => (tabs.current[1] = el)}
-              id={`tab-${1}`}
-              role="tab"
-              aria-selected={activeTabId === 1 ? true : false}
-              aria-controls={`panel-${1}`}
-              tabIndex={activeTabId === 1 ? "0" : "-1"}
-            >
-              <span>{"YMN"}</span>
-            </StyledTabButton>
-          </li>
-          <li>
-            <StyledTabButton
-              isActive={activeTabId === 2}
-              onClick={() => setActiveTabId(2)}
-              ref={(el) => (tabs.current[2] = el)}
-              id={`tab-${2}`}
-              role="tab"
-              aria-selected={activeTabId === 2 ? true : false}
-              aria-controls={`panel-${2}`}
-              tabIndex={activeTabId === 2 ? "0" : "-1"}
-            >
-              <span>{"SGGS"}</span>
-            </StyledTabButton>
-          </li>
-          <StyledHighlight activeTabId={activeTabId}></StyledHighlight>
+          {frontmatter &&
+            Object.keys(frontmatter).map((key, i) => {
+              const { tag } = frontmatter[key];
+              return (
+                <li key={i}>
+                  <StyledTabButton
+                    isActive={activeTabId === i}
+                    onClick={() => setActiveTabId(i)}
+                    ref={(el) => (tabs.current[i] = el)}
+                    id={`tab-${i}`}
+                    role="tab"
+                    aria-selected={activeTabId === i ? "0" : "-1"}
+                  >
+                    <span>{tag}</span>
+                  </StyledTabButton>
+                </li>
+              );
+            })}
+          <StyledHighlight activeTabId={activeTabId} />
         </StyledTabList>
-        <StyledTabContent
-          isActive={activeTabId === 0}
-          id={`panel-${0}`}
-          role="tabpanel"
-          aria-labelledby={`tab-${0}`}
-          tabIndex={activeTabId === 0 ? "0" : "-1"}
-          hidden={activeTabId !== 0}
-        >
-          <EducationTitle>
-            <span>{"SSC"}</span>
-            <EducationPlace>
-              <span>&nbsp;@&nbsp;</span>
-              <span>{"Mahatma Phule HighSchool, Nanded."}</span>
-            </EducationPlace>
-          </EducationTitle>
-          <EducationDetails>
-            <span>{"June 2005 - March 2015"}</span>
-          </EducationDetails>
-          <div>
-            <ul>
-              <li>{"Completed my education upto 10th standard at MPHS."}</li>
-              <li>{"Passed SSC exam with 95% percentage."}</li>
-            </ul>
-          </div>
-        </StyledTabContent>
-        <StyledTabContent
-          isActive={activeTabId === 1}
-          id={`panel-${1}`}
-          role="tabpanel"
-          aria-labelledby={`tab-${1}`}
-          tabIndex={activeTabId === 1 ? "0" : "-1"}
-          hidden={activeTabId !== 1}
-        >
-          <EducationTitle>
-            <span>{"HSC"}</span>
-            <EducationPlace>
-              <span>&nbsp;@&nbsp;</span>
-              <span>{"Yeshwant Mahavidyalaya Nanded."}</span>
-            </EducationPlace>
-          </EducationTitle>
-          <EducationDetails>
-            <span>{"June 2015 - February 2017"}</span>
-          </EducationDetails>
-          <div>
-            <ul>
-              <li>{"Completed my higher secondary education at YMN."}</li>
-              <li>{"Passed HSC exam with 88% percentage."}</li>
-            </ul>
-          </div>
-        </StyledTabContent>
-        <StyledTabContent
-          isActive={activeTabId === 2}
-          id={`panel-${2}`}
-          role="tabpanel"
-          aria-labelledby={`tab-${2}`}
-          tabIndex={activeTabId === 2 ? "0" : "-1"}
-          hidden={activeTabId !== 2}
-        >
-          <EducationTitle>
-            <span>{"Engineering"}</span>
-            <EducationPlace>
-              <span>&nbsp;@&nbsp;</span>
-              <span>
-                {
-                  "Shri Guru Gobind Singhji Institute of Engineering and Technology, Vishnupuri."
-                }
-              </span>
-            </EducationPlace>
-          </EducationTitle>
-          <EducationDetails>
-            <span>{"June 2017 - Present"}</span>
-          </EducationDetails>
-          <div>
-            <ul>
-              <li>
-                {
-                  "I am currently studying Computer Science Engineering at sggs."
-                }
-              </li>
-              <li>
-                {
-                  "Constantly learning and implementing new tech related topics."
-                }
-              </li>
-            </ul>
-          </div>
-        </StyledTabContent>
+        {frontmatter &&
+          Object.keys(frontmatter).map((key, i) => {
+            const { title, school, range, contentHtml } = frontmatter[key];
+            return (
+              <StyledTabContent
+                key={i}
+                isActive={activeTabId === i}
+                id={`panel-${i}`}
+                role="tabpanel"
+                aria-labelledby={`tab-${i}`}
+                tabIndex={activeTabId === i ? "0" : "-1"}
+                hidden={activeTabId !== i}
+              >
+                <EducationTitle>
+                  <span>{title}</span>
+                  <EducationPlace>
+                    <span>&nbsp;@&nbsp;</span>
+                    <a target="_blank" rel="nofollow noopener noreferrer">
+                      {school}
+                    </a>
+                  </EducationPlace>
+                </EducationTitle>
+                <EducationDetails>
+                  <span>{range}</span>
+                </EducationDetails>
+                <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+              </StyledTabContent>
+            );
+          })}
       </StyledTabs>
     </StyledContainer>
   );
+};
+
+Education.propTypes = {
+  data: PropTypes.object,
 };
 
 export default Education;

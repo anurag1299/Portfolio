@@ -41,7 +41,6 @@ export async function getStaticProps() {
 
   for (var i = 0; i < data.length; i++) {
     if (content.hasOwnProperty(data[i].id)) {
-      //console.log("yes");
       const tmp = {};
       tmp[data[i].subId] = data[i];
       content[data[i].id] = { ...content[data[i].id], ...tmp };
@@ -50,14 +49,13 @@ export async function getStaticProps() {
     if (data[i].hasOwnProperty("subId")) {
       const tmp = {};
       tmp[data[i].subId] = data[i];
-      //console.log("tmp", tmp);
       content[data[i].id] = { ...tmp };
       continue;
     }
 
     content[data[i].id] = data[i];
   }
-  console.log(content);
+  //console.log(content);
 
   return {
     props: { data: content },
