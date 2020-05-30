@@ -1,4 +1,5 @@
 ---
+id: "contact"
 title: "contact"
 name: "Anurag More."
 subtitle: "I Rehash Ideas Into Reality."

@@ -31,16 +31,34 @@ export async function getStaticProps() {
   const data = await Promise.all(
     names.map(async (name) => await getContentData(name))
   );
-  //const content = data.map((i) => i);
+
   var content = {};
+  //console.log("here : " + data);
+  // data.map((idata) => {
+  //   //console.log("idata", idata);
+  //   content.push({ [idata.id]: { ...idata } });
+  // });
+
   for (var i = 0; i < data.length; i++) {
+    if (content.hasOwnProperty(data[i].id)) {
+      //console.log("yes");
+      const tmp = {};
+      tmp[data[i].subId] = data[i];
+      content[data[i].id] = { ...content[data[i].id], ...tmp };
+      continue;
+    }
+    if (data[i].hasOwnProperty("subId")) {
+      const tmp = {};
+      tmp[data[i].subId] = data[i];
+      //console.log("tmp", tmp);
+      content[data[i].id] = { ...tmp };
+      continue;
+    }
+
     content[data[i].id] = data[i];
   }
-  //console.log(content);
+  console.log(content);
 
-  // const allContentData = await allContentId.map((i) => {
-  //   getContent(i.id);
-  // });
   return {
     props: { data: content },
   };
