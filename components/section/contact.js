@@ -42,21 +42,23 @@ const StyledEmailLink = styled.a`
   margin-top: 50px;
 `;
 
-const Contact = () => {
+const Contact = (data) => {
+  const frontmatter = data.frontmatter;
+  //console.log(data);
   return (
     <StyledContainer id="contact">
       <StyledHeading>{"Loved my work?"}</StyledHeading>
-      <StyledTitle>{"Get In Touch"}</StyledTitle>
-      <div>
-        <p>
-          {
-            "I am currently looking forward for any new opportunities. My inbox is always open,Whether you have a question or an awesome idea just ping me.I'll try my best to get back to you!"
-          }
-        </p>
-      </div>
-      <StyledEmailLink href={`mailto:${email}`}>Say Hello</StyledEmailLink>
+      <StyledTitle>{frontmatter.title}</StyledTitle>
+      <div dangerouslySetInnerHTML={{ __html: frontmatter.contentHtml }} />
+      <StyledEmailLink href={`mailto:${email}`}>
+        {frontmatter.buttonText}
+      </StyledEmailLink>
     </StyledContainer>
   );
+};
+
+Contact.propTypes = {
+  data: PropTypes.object,
 };
 
 export default Contact;

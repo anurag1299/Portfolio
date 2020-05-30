@@ -9,3 +9,4 @@ export { default as About } from "./section/about";
 export { default as Education } from "./section/education";
 export { default as Contact } from "./section/contact";
 export { default as Footer } from "./footer";
+export { default as Featured } from "./section/featured";

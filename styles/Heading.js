@@ -13,6 +13,7 @@ const Heading = styled.h3`
   white-space: nowrap;
   font-size: ${fontSizes.h3};
   ${media.tablet`font-size: 24px;`};
+  ${media.phablet`font-size: 20px;`};
 
   &:before {
     counter-increment: section;
@@ -34,7 +35,7 @@ const Heading = styled.h3`
     width: 300px;
     background-color: ${colors.lightestNavy};
     position: relative;
-    top: -5px;
+    /* top: -5px; */
     margin-left: 20px;
     ${media.desktop`width: 200px`};
     ${media.tablet`width: 100%;`};

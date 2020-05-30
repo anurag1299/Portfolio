@@ -1,6 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Layout, Top, About, Education, Contact } from "../components/index";
+import {
+  Layout,
+  Top,
+  About,
+  Education,
+  Featured,
+  Contact,
+} from "../components/index";
 import styled from "styled-components";
 import { Main, GlobalStyle } from "../styles/index";
 import { getContentData, getContent } from "../lib/content";
@@ -17,6 +24,7 @@ const Index = ({ data }) => {
         <Top frontmatter={data.top}></Top>
         <About frontmatter={data.about}></About>
         <Education frontmatter={data.education}></Education>
+        <Featured frontmatter={data.featured}></Featured>
         <Contact frontmatter={data.contact}></Contact>
       </StyledMainContainer>
     </Layout>
