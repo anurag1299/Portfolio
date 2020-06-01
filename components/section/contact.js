@@ -47,16 +47,18 @@ const Contact = (data) => {
   const frontmatter = data.frontmatter;
   //console.log(data);
   return (
-    <Fade bottom>
-      <StyledContainer id="contact">
+    <StyledContainer id="contact">
+      <Fade bottom>
         <StyledHeading>{"Loved my work?"}</StyledHeading>
         <StyledTitle>{frontmatter.title}</StyledTitle>
+      </Fade>
+      <Fade bottom>
         <div dangerouslySetInnerHTML={{ __html: frontmatter.contentHtml }} />
         <StyledEmailLink href={`mailto:${email}`}>
           {frontmatter.buttonText}
         </StyledEmailLink>
-      </StyledContainer>
-    </Fade>
+      </Fade>
+    </StyledContainer>
   );
 };
 

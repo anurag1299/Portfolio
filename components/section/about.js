@@ -144,43 +144,46 @@ const About = (data) => {
   //   useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
   //   console.log(avatar);
   return (
-    <Fade bottom>
-      <StyledContainer id="about">
+    <StyledContainer id="about">
+      <Fade bottom>
         <Heading>{title}</Heading>
-        <StyledFlexContainer>
-          <StyledContent>
-            <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-            <Fade bottom>
-              <SkillsWrapper>
-                <SkillsContainer>
-                  <SkillHeading>{"LANGUAGES"}</SkillHeading>
-                  {languages &&
-                    languages.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
-                </SkillsContainer>
-                <SkillsContainer>
-                  <SkillHeading>{"FRAMEWORKS"}</SkillHeading>
-                  {frameworks &&
-                    frameworks.map((skill, i) => (
-                      <Skill key={i}>{skill}</Skill>
-                    ))}
-                </SkillsContainer>
-                <SkillsContainer>
-                  <SkillHeading>{"TOOLS"}</SkillHeading>
-                  {tools &&
-                    tools.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
-                </SkillsContainer>
-              </SkillsWrapper>
-            </Fade>
-          </StyledContent>
+      </Fade>
 
-          <StyledPic>
+      <StyledFlexContainer>
+        <StyledContent>
+          <Fade bottom>
+            <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+          </Fade>
+          <Fade bottom>
+            <SkillsWrapper>
+              <SkillsContainer>
+                <SkillHeading>{"LANGUAGES"}</SkillHeading>
+                {languages &&
+                  languages.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+              </SkillsContainer>
+              <SkillsContainer>
+                <SkillHeading>{"FRAMEWORKS"}</SkillHeading>
+                {frameworks &&
+                  frameworks.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+              </SkillsContainer>
+              <SkillsContainer>
+                <SkillHeading>{"TOOLS"}</SkillHeading>
+                {tools &&
+                  tools.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+              </SkillsContainer>
+            </SkillsWrapper>
+          </Fade>
+        </StyledContent>
+
+        <StyledPic>
+          <Fade bottom>
             <StyledAvatarLink href={github}>
               <StyledAvatar src={avatar} alt={"Avatar"}></StyledAvatar>
             </StyledAvatarLink>
-          </StyledPic>
-        </StyledFlexContainer>
-      </StyledContainer>
-    </Fade>
+          </Fade>
+        </StyledPic>
+      </StyledFlexContainer>
+    </StyledContainer>
   );
 };
 

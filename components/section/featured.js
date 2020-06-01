@@ -218,7 +218,7 @@ const Featured = (data) => {
               ];
 
               return (
-                <Fade bottom>
+                <Fade bottom key={i}>
                   <StyledProject key={i}>
                     <StyledContent>
                       <StyledLabel>Featured Project</StyledLabel>

@@ -189,9 +189,11 @@ const Education = (data) => {
   const frontmatter = data.frontmatter;
   //console.log(data);
   return (
-    <Fade bottom>
-      <StyledContainer id="jobs">
+    <StyledContainer id="jobs">
+      <Fade bottom>
         <Heading>Where I&apos;ve Learned</Heading>
+      </Fade>
+      <Fade bottom>
         <StyledTabs>
           <StyledTabList
             role="tablist"
@@ -248,8 +250,8 @@ const Education = (data) => {
               );
             })}
         </StyledTabs>
-      </StyledContainer>
-    </Fade>
+      </Fade>
+    </StyledContainer>
   );
 };
 
