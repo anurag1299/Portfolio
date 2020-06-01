@@ -206,10 +206,11 @@ const Featured = (data) => {
   const frontmatter = data.frontmatter;
   //console.log(frontmatter);
   return (
-    <Fade bottom>
-      <StyledContainer id="projects">
+    <StyledContainer id="projects">
+      <Fade bottom>
         <Heading>Some Things I&apos;ve Built</Heading>
-
+      </Fade>
+      <Fade>
         <div>
           {frontmatter &&
             Object.keys(frontmatter).map((key, i) => {
@@ -218,61 +219,59 @@ const Featured = (data) => {
               ];
 
               return (
-                <Fade bottom key={i}>
-                  <StyledProject key={i}>
-                    <StyledContent>
-                      <StyledLabel>Featured Project</StyledLabel>
-                      <StyledProjectName>
-                        {external ? (
-                          <a
-                            href={external}
-                            target="_blank"
-                            rel="nofollow noopener noreferrer"
-                            aria-label="External Link"
-                          >
-                            {title}
-                          </a>
-                        ) : (
-                          title
-                        )}
-                      </StyledProjectName>
-                      <StyledDescription
-                        dangerouslySetInnerHTML={{ __html: contentHtml }}
-                      />
-                      {tech && (
-                        <StyledTechList>
-                          {tech.map((tech, i) => (
-                            <li key={i}>{tech}</li>
-                          ))}
-                        </StyledTechList>
+                <StyledProject key={i}>
+                  <StyledContent>
+                    <StyledLabel>Featured Project</StyledLabel>
+                    <StyledProjectName>
+                      {external ? (
+                        <a
+                          href={external}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          aria-label="External Link"
+                        >
+                          {title}
+                        </a>
+                      ) : (
+                        title
                       )}
-                      <StyledLinkWrapper>
-                        {external && (
-                          <a
-                            href={external}
-                            target="_blank"
-                            rel="nofollow noopener noreferrer"
-                            aria-label="External Link"
-                          >
-                            <FormattedIcon name="External" />
-                          </a>
-                        )}
-                      </StyledLinkWrapper>
-                    </StyledContent>
-                    <StyledImgContainer
-                      href={external ? external : "#"}
-                      target="_blank"
-                      rel="nofollow noopener noreferrer"
-                    >
-                      <StyledFeaturedImg src={cover} alt={title} />
-                    </StyledImgContainer>
-                  </StyledProject>
-                </Fade>
+                    </StyledProjectName>
+                    <StyledDescription
+                      dangerouslySetInnerHTML={{ __html: contentHtml }}
+                    />
+                    {tech && (
+                      <StyledTechList>
+                        {tech.map((tech, i) => (
+                          <li key={i}>{tech}</li>
+                        ))}
+                      </StyledTechList>
+                    )}
+                    <StyledLinkWrapper>
+                      {external && (
+                        <a
+                          href={external}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          aria-label="External Link"
+                        >
+                          <FormattedIcon name="External" />
+                        </a>
+                      )}
+                    </StyledLinkWrapper>
+                  </StyledContent>
+                  <StyledImgContainer
+                    href={external ? external : "#"}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >
+                    <StyledFeaturedImg src={cover} alt={title} />
+                  </StyledImgContainer>
+                </StyledProject>
               );
             })}
         </div>
-      </StyledContainer>
-    </Fade>
+      </Fade>
+    </StyledContainer>
   );
 };
 
