@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-// import avatar from "../../images/rsz_1self_portrait30.jpg";
 import { srConfig, github } from "../../config";
 import styled from "styled-components";
+// import sr from "../../utils/sr";
+import Fade from "react-reveal/Fade";
+
 import { theme, mixins, media, Section, Heading } from "../../styles/index";
 const { colors, fontSizes, fonts } = theme;
 
@@ -138,41 +140,47 @@ const About = (data) => {
     tools,
     contentHtml,
   } = data.frontmatter;
-  //   const revealContainer = useRef(null);
+  // const revealContainer = useRef(null);
   //   useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
   //   console.log(avatar);
   return (
-    <StyledContainer id="about">
-      <Heading>{title}</Heading>
-      <StyledFlexContainer>
-        <StyledContent>
-          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+    <Fade bottom>
+      <StyledContainer id="about">
+        <Heading>{title}</Heading>
+        <StyledFlexContainer>
+          <StyledContent>
+            <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+            <Fade bottom>
+              <SkillsWrapper>
+                <SkillsContainer>
+                  <SkillHeading>{"LANGUAGES"}</SkillHeading>
+                  {languages &&
+                    languages.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+                </SkillsContainer>
+                <SkillsContainer>
+                  <SkillHeading>{"FRAMEWORKS"}</SkillHeading>
+                  {frameworks &&
+                    frameworks.map((skill, i) => (
+                      <Skill key={i}>{skill}</Skill>
+                    ))}
+                </SkillsContainer>
+                <SkillsContainer>
+                  <SkillHeading>{"TOOLS"}</SkillHeading>
+                  {tools &&
+                    tools.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+                </SkillsContainer>
+              </SkillsWrapper>
+            </Fade>
+          </StyledContent>
 
-          <SkillsWrapper>
-            <SkillsContainer>
-              <SkillHeading>{"LANGUAGES"}</SkillHeading>
-              {languages &&
-                languages.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
-            </SkillsContainer>
-            <SkillsContainer>
-              <SkillHeading>{"FRAMEWORKS"}</SkillHeading>
-              {frameworks &&
-                frameworks.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
-            </SkillsContainer>
-            <SkillsContainer>
-              <SkillHeading>{"TOOLS"}</SkillHeading>
-              {tools && tools.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
-            </SkillsContainer>
-          </SkillsWrapper>
-        </StyledContent>
-
-        <StyledPic>
-          <StyledAvatarLink href={github}>
-            <StyledAvatar src={avatar} alt={"Avatar"}></StyledAvatar>
-          </StyledAvatarLink>
-        </StyledPic>
-      </StyledFlexContainer>
-    </StyledContainer>
+          <StyledPic>
+            <StyledAvatarLink href={github}>
+              <StyledAvatar src={avatar} alt={"Avatar"}></StyledAvatar>
+            </StyledAvatarLink>
+          </StyledPic>
+        </StyledFlexContainer>
+      </StyledContainer>
+    </Fade>
   );
 };
 

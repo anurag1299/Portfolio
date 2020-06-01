@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { email } from "../../config";
 import styled from "styled-components";
 import { theme, mixins, media, Section, Heading } from "../../styles/index";
+import Fade from "react-reveal/Fade";
 const { colors, fontSizes, fonts } = theme;
 
 const StyledContainer = styled(Section)`
@@ -46,14 +47,16 @@ const Contact = (data) => {
   const frontmatter = data.frontmatter;
   //console.log(data);
   return (
-    <StyledContainer id="contact">
-      <StyledHeading>{"Loved my work?"}</StyledHeading>
-      <StyledTitle>{frontmatter.title}</StyledTitle>
-      <div dangerouslySetInnerHTML={{ __html: frontmatter.contentHtml }} />
-      <StyledEmailLink href={`mailto:${email}`}>
-        {frontmatter.buttonText}
-      </StyledEmailLink>
-    </StyledContainer>
+    <Fade bottom>
+      <StyledContainer id="contact">
+        <StyledHeading>{"Loved my work?"}</StyledHeading>
+        <StyledTitle>{frontmatter.title}</StyledTitle>
+        <div dangerouslySetInnerHTML={{ __html: frontmatter.contentHtml }} />
+        <StyledEmailLink href={`mailto:${email}`}>
+          {frontmatter.buttonText}
+        </StyledEmailLink>
+      </StyledContainer>
+    </Fade>
   );
 };
 

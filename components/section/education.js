@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-
+import Fade from "react-reveal/Fade";
 import styled from "styled-components";
 import { theme, mixins, media, Section, Heading } from "../../styles/index";
 const { colors, fontSizes, fonts } = theme;
@@ -189,65 +189,67 @@ const Education = (data) => {
   const frontmatter = data.frontmatter;
   //console.log(data);
   return (
-    <StyledContainer id="jobs">
-      <Heading>Where I&apos;ve Learned</Heading>
-      <StyledTabs>
-        <StyledTabList
-          role="tablist"
-          aria-label="Education tabs"
-          onKeyDown={(e) => onKeyPressed(e)}
-        >
+    <Fade bottom>
+      <StyledContainer id="jobs">
+        <Heading>Where I&apos;ve Learned</Heading>
+        <StyledTabs>
+          <StyledTabList
+            role="tablist"
+            aria-label="Education tabs"
+            onKeyDown={(e) => onKeyPressed(e)}
+          >
+            {frontmatter &&
+              Object.keys(frontmatter).map((key, i) => {
+                const { tag } = frontmatter[key];
+                return (
+                  <li key={i}>
+                    <StyledTabButton
+                      isActive={activeTabId === i}
+                      onClick={() => setActiveTabId(i)}
+                      ref={(el) => (tabs.current[i] = el)}
+                      id={`tab-${i}`}
+                      role="tab"
+                      aria-selected={activeTabId === i ? "0" : "-1"}
+                    >
+                      <span>{tag}</span>
+                    </StyledTabButton>
+                  </li>
+                );
+              })}
+            <StyledHighlight activeTabId={activeTabId} />
+          </StyledTabList>
           {frontmatter &&
             Object.keys(frontmatter).map((key, i) => {
-              const { tag } = frontmatter[key];
+              const { title, school, range, contentHtml } = frontmatter[key];
               return (
-                <li key={i}>
-                  <StyledTabButton
-                    isActive={activeTabId === i}
-                    onClick={() => setActiveTabId(i)}
-                    ref={(el) => (tabs.current[i] = el)}
-                    id={`tab-${i}`}
-                    role="tab"
-                    aria-selected={activeTabId === i ? "0" : "-1"}
-                  >
-                    <span>{tag}</span>
-                  </StyledTabButton>
-                </li>
+                <StyledTabContent
+                  key={i}
+                  isActive={activeTabId === i}
+                  id={`panel-${i}`}
+                  role="tabpanel"
+                  aria-labelledby={`tab-${i}`}
+                  tabIndex={activeTabId === i ? "0" : "-1"}
+                  hidden={activeTabId !== i}
+                >
+                  <EducationTitle>
+                    <span>{title}</span>
+                    <EducationPlace>
+                      <span>&nbsp;@&nbsp;</span>
+                      <a target="_blank" rel="nofollow noopener noreferrer">
+                        {school}
+                      </a>
+                    </EducationPlace>
+                  </EducationTitle>
+                  <EducationDetails>
+                    <span>{range}</span>
+                  </EducationDetails>
+                  <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+                </StyledTabContent>
               );
             })}
-          <StyledHighlight activeTabId={activeTabId} />
-        </StyledTabList>
-        {frontmatter &&
-          Object.keys(frontmatter).map((key, i) => {
-            const { title, school, range, contentHtml } = frontmatter[key];
-            return (
-              <StyledTabContent
-                key={i}
-                isActive={activeTabId === i}
-                id={`panel-${i}`}
-                role="tabpanel"
-                aria-labelledby={`tab-${i}`}
-                tabIndex={activeTabId === i ? "0" : "-1"}
-                hidden={activeTabId !== i}
-              >
-                <EducationTitle>
-                  <span>{title}</span>
-                  <EducationPlace>
-                    <span>&nbsp;@&nbsp;</span>
-                    <a target="_blank" rel="nofollow noopener noreferrer">
-                      {school}
-                    </a>
-                  </EducationPlace>
-                </EducationTitle>
-                <EducationDetails>
-                  <span>{range}</span>
-                </EducationDetails>
-                <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-              </StyledTabContent>
-            );
-          })}
-      </StyledTabs>
-    </StyledContainer>
+        </StyledTabs>
+      </StyledContainer>
+    </Fade>
   );
 };
 
