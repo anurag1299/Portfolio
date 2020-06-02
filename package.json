@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/anurag1299/Portfolio/issues"
   },
-  "homepage": "https://anurag1299.github.io/Portfolio",
+  "homepage": "https://anurag1299.github.io",
   "dependencies": {
     "animejs": "^3.2.0",
     "gray-matter": "^4.0.2",
