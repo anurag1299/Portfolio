@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "My personal portfolio website",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "Anurag More",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/anurag1299/Portfolio/issues"
   },

@@ -99,12 +99,12 @@ const Menu = ({ menuOpen, toogleMenu }) => {
             {navLinks &&
               navLinks.map(({ url, name }, i) => (
                 <NavListItem key={i}>
-                  <NavLink to={url}>{name}</NavLink>
+                  <NavLink href={url}>{name}</NavLink>
                 </NavListItem>
               ))}
           </NavList>
           <ResumeLink
-            href="/resume.pdf"
+            href="/Resume.pdf"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
