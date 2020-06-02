@@ -16,22 +16,7 @@ const StyledContent = styled.div`
   min-height: 100vh;
 `;
 
-const Layout = ({ children, pathname }) => {
-  // const isHome = location.pathname === "/";
-  console.log(pathname);
-  // useEffect(() => {
-  //   if (location.hash) {
-  //     const id = location.hash.substring(1); // location.hash without the '#'
-  //     setTimeout(() => {
-  //       const el = document.getElementById(id);
-  //       if (el) {
-  //         el.scrollIntoView();
-  //         el.focus();
-  //       }
-  //     }, 0);
-  //   }
-  // });
-
+const Layout = ({ children }) => {
   return (
     <div id="root">
       <StyledContent>
@@ -49,11 +34,6 @@ const Layout = ({ children, pathname }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  pathname: PropTypes.string,
-};
-
-Layout.getInitialProps = (ctx) => {
-  return ctx.pathname;
 };
 
 export default Layout;

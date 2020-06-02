@@ -258,7 +258,7 @@ class Nav extends Component {
             {isMounted && (
               <CSSTransition classNames={fadeClass} timeout={timeout}>
                 <StyledLogo tabindex="-1">
-                  <a href="#hero" aria-label="home">
+                  <a href="/#hero" aria-label="home">
                     <IconLogo />
                   </a>
                 </StyledLogo>
