@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from \"styled-components\";\nimport theme from \"./theme\";\nvar Footer = styled.footer.withConfig({\n  displayName: \"Footer\",\n  componentId: \"ypxh3r-0\"\n})([\"margin:0;padding:\", \";\"], theme.margin);\nexport default Footer;","map":null,"metadata":{},"sourceType":"module"}
