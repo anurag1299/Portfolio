@@ -33,7 +33,7 @@ module.exports = {
   exportPathMap: () => ({
     "/": { page: "/" },
   }),
-  assetPrefix: isprod ? "./" : "",
+  assetPrefix: isprod ? "/" : "",
 
   webpackDevMiddleware: (config) => {
     // Perform customizations to webpack dev middleware config
