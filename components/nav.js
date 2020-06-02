@@ -9,6 +9,7 @@ import { Menu } from "./index";
 import { IconLogo } from "./icons";
 import styled from "styled-components";
 import { theme, mixins, media } from "../styles/index";
+import Link from "next/link";
 const { colors, fontSizes, fonts, loaderDelay } = theme;
 
 const StyledContainer = styled.header`
@@ -252,15 +253,12 @@ class Nav extends Component {
     //console.log(isMounted);
     return (
       <StyledContainer scrollDirection={scrollDirection}>
-        {/* <Helmet>
-          <body className={menuOpen ? "blur" : ""} />
-        </Helmet> */}
         <StyledNav>
           <TransitionGroup component={null}>
             {isMounted && (
               <CSSTransition classNames={fadeClass} timeout={timeout}>
                 <StyledLogo tabindex="-1">
-                  <a href="#" aria-label="home">
+                  <a href="#hero" aria-label="home">
                     <IconLogo />
                   </a>
                 </StyledLogo>
@@ -295,7 +293,7 @@ class Nav extends Component {
                         key={i}
                         style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}
                       >
-                        <StyledListLink to={url}>{name}</StyledListLink>
+                        <StyledListLink href={url}>{name}</StyledListLink>
                       </StyledListItem>
                     </CSSTransition>
                   ))}

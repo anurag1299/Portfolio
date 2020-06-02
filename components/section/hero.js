@@ -56,7 +56,7 @@ const StyledEmailLink = styled.a`
   margin-top: 50px;
 `;
 
-const Top = (data) => {
+const Hero = (data) => {
   const [isMounted, setIsMounted] = useState(false);
   const frontmatter = data.frontmatter;
   //const data = JSON.parse(frontmatter);
@@ -103,7 +103,7 @@ const Top = (data) => {
   const items = [one, two, three, four, five];
 
   return (
-    <StyledContainer>
+    <StyledContainer id="hero">
       <TransitionGroup component={null}>
         {isMounted &&
           items.map((item, i) => (
@@ -116,8 +116,8 @@ const Top = (data) => {
   );
 };
 
-Top.propTypes = {
+Hero.propTypes = {
   data: PropTypes.object,
 };
 
-export default Top;
+export default Hero;

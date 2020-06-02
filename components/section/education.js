@@ -189,7 +189,7 @@ const Education = (data) => {
   const frontmatter = data.frontmatter;
   //console.log(data);
   return (
-    <StyledContainer id="jobs">
+    <StyledContainer id="college">
       <Fade bottom>
         <Heading>Where I&apos;ve Learned</Heading>
       </Fade>

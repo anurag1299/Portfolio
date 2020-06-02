@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {
   Layout,
-  Top,
+  Hero,
   About,
   Education,
   Featured,
@@ -21,7 +21,7 @@ const Index = ({ data }) => {
   return (
     <Layout>
       <StyledMainContainer className="fillHeight">
-        <Top frontmatter={data.top}></Top>
+        <Hero frontmatter={data.top}></Hero>
         <About frontmatter={data.about}></About>
         <Education frontmatter={data.education}></Education>
         <Featured frontmatter={data.featured}></Featured>
