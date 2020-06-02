@@ -1,3 +1,5 @@
+const isprod = (process.env.NODE_ENV || "production") === "production";
+
 module.exports = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push({
@@ -27,6 +29,10 @@ module.exports = {
     config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
     return config;
   },
+  exportPathMap: () => ({
+    "/": { page: "/" },
+  }),
+  assetPrefix: isprod ? "./" : "",
 
   webpackDevMiddleware: (config) => {
     // Perform customizations to webpack dev middleware config

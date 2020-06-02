@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export -o docs",
-    "deploy": "next build && next export -o docs && git checkout -- docs/CNAME && git checkout -- docs/.nojekyll && git add docs && git commit -m \"chore: regen site\" && git push origin master"
+    "deploy": "next build && next export -o docs && git add . && git commit -m 'build' && git push origin master"
   },
   "repository": {
     "type": "git",
