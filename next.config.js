@@ -32,7 +32,7 @@ module.exports = {
   exportPathMap: () => ({
     "/": { page: "/" },
   }),
-  assetPrefix: isProd ? "/your-repository-name" : "Portfolio",
+  assetPrefix: isProd ? "Portfolio" : "",
   webpackDevMiddleware: (config) => {
     // Perform customizations to webpack dev middleware config
     // Important: return the modified config
