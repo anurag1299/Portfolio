@@ -30,10 +30,17 @@ module.exports = {
     return config;
   },
   distDir: "_next",
+  generateBuildId: async () => {
+    if (process.env.BUILD_ID) {
+      return process.env.BUILD_ID;
+    } else {
+      return `${new Date().getTime()}`;
+    }
+  },
   exportPathMap: () => ({
     "/": { page: "/" },
   }),
-  assetPrefix: isprod ? "./docs" : "",
+  assetPrefix: isprod ? "./" : "",
 
   webpackDevMiddleware: (config) => {
     // Perform customizations to webpack dev middleware config
