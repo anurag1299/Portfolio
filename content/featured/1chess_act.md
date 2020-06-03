@@ -2,7 +2,7 @@
 id: "featured"
 subId: "chess-act"
 title: "Chess-Act"
-cover: "/images/chess-act.png"
+cover: "./images/chess-act.png"
 external: "https://chess-act.firebaseapp.com"
 tech:
   - JavaScript

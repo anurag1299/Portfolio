@@ -2,7 +2,7 @@
 id: "featured"
 subId: "electron"
 title: "Electron"
-cover: "/images/electron.JPG"
+cover: "./images/electron.JPG"
 external: "https://play.google.com/store/apps/details?id=com.errorist.electron"
 tech:
   - Unity3d

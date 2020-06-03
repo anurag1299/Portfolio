@@ -1,7 +1,7 @@
 ---
 id: "about"
 title: "About Me"
-avatar: "/images/me.jpg"
+avatar: "./images/me.jpg"
 languages:
   - C
   - C++

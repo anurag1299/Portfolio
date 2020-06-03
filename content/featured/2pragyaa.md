@@ -2,7 +2,7 @@
 id: "featured"
 subId: "pragyaa"
 title: "Pragyaa 2019"
-cover: "/images/pragyaa.png"
+cover: "./images/pragyaa.png"
 external: "https://2019.pragyaa.org"
 tech:
   - HTML & CSS
