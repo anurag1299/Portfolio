@@ -29,7 +29,7 @@ module.exports = {
     config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
     return config;
   },
-  distDir: "_next",
+  distDir: "build",
   generateBuildId: async () => {
     if (process.env.BUILD_ID) {
       return process.env.BUILD_ID;

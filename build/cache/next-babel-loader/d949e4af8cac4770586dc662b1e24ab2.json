@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from \"styled-components\";\nconst Header = styled.header.withConfig({\n  displayName: \"Header\",\n  componentId: \"sc-1a2x9wi-0\"\n})([\"width:100%;\"]);\nexport default Header;","map":null,"metadata":{},"sourceType":"module"}

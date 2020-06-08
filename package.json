@@ -4,6 +4,7 @@
   "description": "My personal portfolio website",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "next",
     "build": "next build",
     "start": "next start",
@@ -23,6 +24,7 @@
   "homepage": "https://anurag1299.github.io/Portfolio",
   "dependencies": {
     "animejs": "^3.2.0",
+    "express": "^4.17.1",
     "gray-matter": "^4.0.2",
     "next": "^9.4.0",
     "prop-types": "^15.7.2",
